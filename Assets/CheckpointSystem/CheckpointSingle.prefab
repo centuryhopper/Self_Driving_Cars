@@ -31,6 +31,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 21.058, y: 4.32, z: 139.43}
   m_LocalScale: {x: 21.578192, y: 10.399178, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -54,10 +55,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -82,6 +85,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &190544719948302718
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -116,9 +120,9 @@ Animation:
   m_GameObject: {fileID: 190544719948302717}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 1d2c9bac611ff154e96e42c7adb2ddd9, type: 2}
+  m_Animation: {fileID: 7400000, guid: 822105d1cf9b18aae81b4bc4c79feaa7, type: 2}
   m_Animations:
-  - {fileID: 7400000, guid: 1d2c9bac611ff154e96e42c7adb2ddd9, type: 2}
+  - {fileID: 7400000, guid: 822105d1cf9b18aae81b4bc4c79feaa7, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0

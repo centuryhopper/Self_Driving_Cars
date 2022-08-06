@@ -16,14 +16,14 @@ public class Mouse3D : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit raycastHit, Mathf.Infinity, mouseColliderLayerMask))
-        {
-            transform.position = raycastHit.point;
-        }
-    }
+    // void Update()
+    // {
+    //     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+    //     if (Physics.Raycast(ray, out RaycastHit raycastHit, Mathf.Infinity, mouseColliderLayerMask))
+    //     {
+    //         transform.position = raycastHit.point;
+    //     }
+    // }
 
     public static Vector3 GetMouseWorldPosition() => Instance.GetMouseWorldPosition_Instance();
 

@@ -8,14 +8,18 @@ public class CameraFollow3D : MonoBehaviour
 
     public float smoothSpeed = 0.125f;
     public Vector3 offset;
+    public Vector3 velocity = Vector3.zero;
 
     void Awake()
     {
     }
 
-    // Update is called once per frame
     void LateUpdate()
     {
-        transform.position = targetToFollow.position + offset;
+        // https://www.youtube.com/watch?v=gqU1t1jpmDw
+        var desiredPosition = targetToFollow.position + offset;
+
+        var smoothDampedPosition = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed  * Time.deltaTime);
+        transform.position = smoothDampedPosition;
     }
 }

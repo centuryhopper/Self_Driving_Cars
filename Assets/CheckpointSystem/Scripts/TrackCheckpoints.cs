@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// main class that will hold all the CheckpointSingle objects
+/// </summary>
 public class TrackCheckpoints : MonoBehaviour {
 
     public event EventHandler OnPlayerCorrectCheckpoint;
