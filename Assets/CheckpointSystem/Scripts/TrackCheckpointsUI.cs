@@ -1,31 +1,44 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class TrackCheckpointsUI : MonoBehaviour {
+public class TrackCheckpointsUI : MonoBehaviour
+{
 
     [SerializeField] private TrackCheckpoints trackCheckpoints;
 
-    private void Start() {
+    void OnEnable()
+    {
         trackCheckpoints.OnPlayerCorrectCheckpoint += TrackCheckpoints_OnPlayerCorrectCheckpoint;
         trackCheckpoints.OnPlayerWrongCheckpoint += TrackCheckpoints_OnPlayerWrongCheckpoint;
+    }
 
+    void OnDisable()
+    {
+        trackCheckpoints.OnPlayerCorrectCheckpoint -= TrackCheckpoints_OnPlayerCorrectCheckpoint;
+        trackCheckpoints.OnPlayerWrongCheckpoint -= TrackCheckpoints_OnPlayerWrongCheckpoint;
+    }
+
+    private void Start()
+    {
         Hide();
     }
 
-    private void TrackCheckpoints_OnPlayerWrongCheckpoint(object sender, System.EventArgs e) {
+    private void TrackCheckpoints_OnPlayerWrongCheckpoint()
+    {
         Show();
     }
 
-    private void TrackCheckpoints_OnPlayerCorrectCheckpoint(object sender, System.EventArgs e) {
+    private void TrackCheckpoints_OnPlayerCorrectCheckpoint()
+    {
         Hide();
     }
 
-    private void Show() {
+    private void Show()
+    {
         gameObject.SetActive(true);
     }
 
-    private void Hide() {
+    private void Hide()
+    {
         gameObject.SetActive(false);
     }
 
