@@ -1,0 +1,65 @@
+{
+    "CarDriver": {
+        "checkpoints": [
+            {
+                "steps": 5999968,
+                "file_path": "results/T2/CarDriver/CarDriver-5999968.onnx",
+                "reward": null,
+                "creation_time": 1660264072.3467877,
+                "auxillary_file_paths": [
+                    "results/T2/CarDriver/CarDriver-5999968.pt"
+                ]
+            },
+            {
+                "steps": 6499936,
+                "file_path": "results/T2/CarDriver/CarDriver-6499936.onnx",
+                "reward": null,
+                "creation_time": 1660264458.4955149,
+                "auxillary_file_paths": [
+                    "results/T2/CarDriver/CarDriver-6499936.pt"
+                ]
+            },
+            {
+                "steps": 6999968,
+                "file_path": "results/T2/CarDriver/CarDriver-6999968.onnx",
+                "reward": null,
+                "creation_time": 1660264833.9828773,
+                "auxillary_file_paths": [
+                    "results/T2/CarDriver/CarDriver-6999968.pt"
+                ]
+            },
+            {
+                "steps": 7499936,
+                "file_path": "results/T2/CarDriver/CarDriver-7499936.onnx",
+                "reward": null,
+                "creation_time": 1660265201.4919024,
+                "auxillary_file_paths": [
+                    "results/T2/CarDriver/CarDriver-7499936.pt"
+                ]
+            },
+            {
+                "steps": 7500320,
+                "file_path": "results/T2/CarDriver/CarDriver-7500320.onnx",
+                "reward": null,
+                "creation_time": 1660265201.584891,
+                "auxillary_file_paths": [
+                    "results/T2/CarDriver/CarDriver-7500320.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 7500320,
+            "file_path": "results/T2/CarDriver.onnx",
+            "reward": null,
+            "creation_time": 1660265201.584891,
+            "auxillary_file_paths": [
+                "results/T2/CarDriver/CarDriver-7500320.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.29.0",
+        "torch_version": "1.12.1+cu102"
+    }
+}

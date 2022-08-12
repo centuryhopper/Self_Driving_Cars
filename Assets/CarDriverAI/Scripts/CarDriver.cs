@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class CarDriver : MonoBehaviour {
+public class CarDriver : MonoBehaviour
+{
 
     #region Fields
     private float speed;
@@ -24,31 +23,41 @@ public class CarDriver : MonoBehaviour {
     private Rigidbody carRigidbody;
     #endregion
 
-    private void Awake() {
+    private void Awake()
+    {
         carRigidbody = GetComponent<Rigidbody>();
     }
 
-    private void Update() {
-        if (forwardAmount > 0) {
+    private void Update()
+    {
+        if (forwardAmount > 0)
+        {
             // Accelerating
             speed += forwardAmount * acceleration * Time.deltaTime;
         }
-        if (forwardAmount < 0) {
-            if (speed > 0) {
+        if (forwardAmount < 0)
+        {
+            if (speed > 0)
+            {
                 // Braking
                 speed += forwardAmount * brakeSpeed * Time.deltaTime;
-            } else {
+            }
+            else
+            {
                 // Reversing
                 speed += forwardAmount * reverseSpeed * Time.deltaTime;
             }
         }
 
-        if (forwardAmount == 0) {
+        if (forwardAmount == 0)
+        {
             // Not accelerating or braking
-            if (speed > 0) {
+            if (speed > 0)
+            {
                 speed -= idleSlowdown * Time.deltaTime;
             }
-            if (speed < 0) {
+            if (speed < 0)
+            {
                 speed += idleSlowdown * Time.deltaTime;
             }
         }
@@ -57,28 +66,36 @@ public class CarDriver : MonoBehaviour {
 
         carRigidbody.velocity = transform.forward * speed;
 
-        if (speed < 0) {
+        if (speed < 0)
+        {
             // Going backwards, invert wheels
             turnAmount = turnAmount * -1f;
         }
 
-        if (turnAmount > 0 || turnAmount < 0) {
+        if (turnAmount > 0 || turnAmount < 0)
+        {
             // Turning
-            if ((turnSpeed > 0 && turnAmount < 0) || (turnSpeed < 0 && turnAmount > 0)) {
+            if ((turnSpeed > 0 && turnAmount < 0) || (turnSpeed < 0 && turnAmount > 0))
+            {
                 // Changing turn direction
                 float minTurnAmount = 20f;
                 turnSpeed = turnAmount * minTurnAmount;
             }
             turnSpeed += turnAmount * turnSpeedAcceleration * Time.deltaTime;
-        } else {
+        }
+        else
+        {
             // Not turning
-            if (turnSpeed > 0) {
+            if (turnSpeed > 0)
+            {
                 turnSpeed -= turnIdleSlowdown * Time.deltaTime;
             }
-            if (turnSpeed < 0) {
+            if (turnSpeed < 0)
+            {
                 turnSpeed += turnIdleSlowdown * Time.deltaTime;
             }
-            if (turnSpeed > -1f && turnSpeed < +1f) {
+            if (turnSpeed > -1f && turnSpeed < +1f)
+            {
                 // Stop rotating
                 turnSpeed = 0f;
             }
@@ -91,7 +108,8 @@ public class CarDriver : MonoBehaviour {
 
         carRigidbody.angularVelocity = new Vector3(0, turnSpeed * (invertSpeedNormalized * 1f) * Mathf.Deg2Rad, 0);
 
-        if (transform.eulerAngles.x > 2 || transform.eulerAngles.x < -2 || transform.eulerAngles.z > 2 || transform.eulerAngles.z < -2) {
+        if (transform.eulerAngles.x > 2 || transform.eulerAngles.x < -2 || transform.eulerAngles.z > 2 || transform.eulerAngles.z < -2)
+        {
             transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
         }
     }
@@ -102,34 +120,40 @@ public class CarDriver : MonoBehaviour {
     //     }
     // }
 
-    public void SetInputs(float forwardAmount, float turnAmount) {
+    public void SetInputs(float forwardAmount, float turnAmount)
+    {
         this.forwardAmount = forwardAmount;
         this.turnAmount = turnAmount;
     }
 
-    public void ClearTurnSpeed() {
+    public void ClearTurnSpeed()
+    {
         turnSpeed = 0f;
     }
 
-    public float GetSpeed() {
+    public float GetSpeed()
+    {
         return speed;
     }
 
-    public void SetSpeedMax(float speedMax) {
+    public void SetSpeedMax(float speedMax)
+    {
         this.speedMax = speedMax;
     }
 
-    public void SetTurnSpeedMax(float turnSpeedMax) {
+    public void SetTurnSpeedMax(float turnSpeedMax)
+    {
         this.turnSpeedMax = turnSpeedMax;
     }
 
-    public void SetTurnSpeedAcceleration(float turnSpeedAcceleration) {
+    public void SetTurnSpeedAcceleration(float turnSpeedAcceleration)
+    {
         this.turnSpeedAcceleration = turnSpeedAcceleration;
     }
 
-    public void StopCompletely() {
+    public void StopCompletely()
+    {
         speed = 0f;
         turnSpeed = 0f;
     }
-
 }

@@ -1,23 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class CheckpointSingle : MonoBehaviour {
-
+public class CheckpointSingle : MonoBehaviour
+{
     private TrackCheckpoints trackCheckpoints;
     private MeshRenderer meshRenderer;
 
-    private void Awake() {
+    private void Awake()
+    {
         meshRenderer = GetComponent<MeshRenderer>();
     }
 
-    private void Start() {
+    private void Start()
+    {
         Hide();
     }
 
-    private void OnTriggerEnter(Collider other) {
-        if (other.TryGetComponent<CarDriverAI>(out CarDriverAI player)) {
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent<CarDriverAgent>(out CarDriverAgent carDriver))
+        {
             trackCheckpoints.CarThroughCheckpoint(this, other.transform);
+            // print($"{other.transform.name} triggered {transform.name}");
         }
     }
 
@@ -27,15 +30,18 @@ public class CheckpointSingle : MonoBehaviour {
     //     }
     // }
 
-    public void SetTrackCheckpoints(TrackCheckpoints trackCheckpoints) {
+    public void SetTrackCheckpoints(TrackCheckpoints trackCheckpoints)
+    {
         this.trackCheckpoints = trackCheckpoints;
     }
 
-    public void Show() {
+    public void Show()
+    {
         meshRenderer.enabled = true;
     }
 
-    public void Hide() {
+    public void Hide()
+    {
         meshRenderer.enabled = false;
     }
 
